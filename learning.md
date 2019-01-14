@@ -20,3 +20,28 @@ https://nandovieira.com/using-insensitive-case-columns-in-postgresql-with-citext
   (What are postgres schemas? How do they work? How do they affect database behavior?)
 
 https://developer.atlassian.com/blog/2015/11/scripting-with-node/
+
+
+https://infinitered.github.io/gluegun/#/
+https://github.com/conventional-changelog/standard-version
+https://www.conventionalcommits.org/en/v1.0.0-beta.2/
+https://github.com/bcoe/c8
+https://blog.npmjs.org/post/178487845610/rethinking-javascript-test-coverage
+
+
+
+/**
+https://github.com/brianc/node-postgres/issues/539
+Looks like you can't parameterize a CREATE DATABASE command
+
+Looks like pg's escapeLiteral and escapeIdentifier could help?
+How does this escaping work? What are we trying to achieve?
+**/
+
+/**
+CREATE DATABASE {{ DB_NAME }};
+CREATE ROLE {{ DB_USER }} WITH LOGIN PASSWORD '{{ DB_PASS }}';
+GRANT ALL PRIVILEGES ON DATABASE {{ DB_NAME }} TO {{ DB_USER }};
+(( need to connect to DB ))
+CREATE EXTENSION IF NOT EXISTS citext;
+**/
