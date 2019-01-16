@@ -1,6 +1,10 @@
 - [] What are parameterized queries? How do they work? What problems do they solve?
 - [] What's the difference between users and roles?
 - [] What is the postgres default database?
+- [] How does templating work in Postgres? Would that be useful to us?
+- [] How does node-pg work?
+
+
 
 
 ## Resources
