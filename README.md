@@ -1,7 +1,26 @@
 # Introduction
 
-A CLI utility for setting up and configuring a postgres database based on
+A CLI utility for setting up and configuring a postgres database and user based on
 a .env file
+
+<!-- Explain .env / link to 12 factor -->
+
+## How to Use
+
+
+- In a project that uses a `.env` file or similar convention, following the
+[12 Factor methodology](https://12factor.net/config), for configuration
+- Postgres running locally
+
+<!-- TODO WHAT ARE THE RULES / LOGIC AROUND CONNECTING TO A DATABASE -->
+
+```sh
+# In a project with a .env file
+npx pgrease # could also npm install -g
+```
+
+
+
 
 ## How it Works
 
@@ -28,12 +47,12 @@ Known issues:
 The module will:
 
 <!-- TODO NO! WE'RE NOT PARSING INTO ENV, JUST PARSING INTO AN OBJECT. ANY ISSUE WITH THAT? -->
-1. Look for a .env file in the current working directory and parse the values found therein into process.env (see dotenv) <!-- TODO LINK TO DOTENV -->
-2. Check for and configure itself with values it understands
+1. Look for a .env file in the current working directory (or the path specified (see "Options")) and parse (see dotenv) <!-- TODO LINK TO DOTENV -->
+2. Check for and configure itself with values it understands found in that file
 3. Display a prompt previewing the actions it intends to take given the supplied configuration
 4. On receiving your ok, execute those queries
 
-`pgrease` currently runs the following queries
+`pgrease` currently runs the following queries <!-- TODO These aren't queries. Statements? Commands? -->
 
 <!-- TODO Fix this documentation -->
 1. `CREATE DATABASE`
@@ -51,7 +70,7 @@ be complete.
 <!-- TODO How do we handle Connection URI? Our own, consistently named, env var? -->
 
 To connect to your postgres instance, `pgrease` interfaces directly with `pg`
-(specifically, it's `Client` class). Our usage of `pg` thus makes use of any of the environment variables `pg` supports that `pgrease` finds at runtime
+(specifically, its `Client` class). Our usage of `pg` thus makes use of any of the environment variables `pg` supports that `pgrease` finds at runtime
 
 To configure how `pgrease` connects to your Postgres instance,
 follow `pg`'s naming convention and defaults for connection-specific

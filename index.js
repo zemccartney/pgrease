@@ -14,6 +14,8 @@ internals.configure = async () => {
   const configFile = await Util.promisify(Fs.readFile)(envfilePath);
   internals.parseConfigFile(configFile);
 
+  // TODO BUT WHAT IF SOMEONE TRIES TO SET THESE IN THE FILE?
+  // TODO WHAT IF SOMEONE SETS VIA CL, BUT ALSO HAS IN .ENV? (CL TAKES PRECEDENCE)
   // Postgres' root database on installing is named postgres
   // We assume that's the DB to which people want to connect unless specified
   // instead of using pg's default of process.env.USER, which, at least in my
@@ -42,6 +44,7 @@ internals.parseConfigFile = (src) => {
 
       // if a line starts w/ that value
       // NOTE Regex bic'd straight from dotenv, all credit there
+      // TODO Any way to break this regex?
       const [_, key, value] = ln.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/);
       // Validation
       // TODO Throw validation errors please
@@ -147,7 +150,7 @@ module.exports = async () => {
       try {
           client.end()
           // TODO Use Bounce??? Read Eran's articles on errors in Promises
-      } catch (socketAlreadyClose) { /* Swallow the error, just making sure current connection is closed so process doesn't hang */}
+      } catch (socketAlreadyClosed) { /* Swallow the error, just making sure current connection is closed so process doesn't hang */}
       // TODO Though possible to end on drain, given that we're only submitting 1 query per client?
 
       console.error(e);

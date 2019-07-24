@@ -4,8 +4,9 @@
 - [] How does templating work in Postgres? Would that be useful to us?
 - [] How does node-pg work?
 
-
-
+http://www.postgresqltutorial.com/
+https://github.com/dwyl/learn-postgresql
+http://postgresguide.com/
 
 ## Resources
 
