@@ -1,3 +1,5 @@
+# UNDER CONSTRUCTION — THIS LIBRARY IS NOT YET AVAILABLE, STILL VERY MUCH A WORK IN PROGRESS
+
 # Introduction
 
 A CLI utility for setting up and configuring a postgres database based on
