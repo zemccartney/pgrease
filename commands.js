@@ -1,9 +1,14 @@
+/* eslint-disable */
 // TODO WITH OWNER should be optional; if no DB_USER, then owner will default to creating user
 `
 CREATE DATABASE ${process.env.DB_NAME} WITH OWNER ${process.env.DB_USER} TEMPLATE template0;
 CREATE ROLE ${process.env.DB_USER} LOGIN PASSWORD ${hash()} NOINHERIT;
 CREATE EXTENSION IF NOT EXISTS ${ext};
 `;
+
+// TODO // https://www.postgresql.org/docs/10/sql-createrole.html
+// "A null password can optionally be written explicitly as PASSWORD NULL."
+// CONSIDER WHEN FIGURING OUT WHAT TO DO ABOUT DB_USER, but no DB_PASSWORD
 
 // TODO Experiment w/ this? https://thecodebarbarian.com/getting-started-with-async-iterators-in-node-js
 // For firing off commands?
@@ -19,7 +24,6 @@ If tables in DB are created by another user, then tables owned by that user, not
 like when i had to run MBM migrations as pg to allow extension creation
 
 
-
 - explain template0 ; design principle: aim for as unadorned a setup as possible,
 avoid overstepping or accidentally depending on local state, create as if totally bare
 
@@ -32,6 +36,7 @@ encrypting w/ MD5  `md5${Crypto.md5(`${process.env.DB_PASSWORD}${process.env.DB_
      the least they need to do everything asked by the application
 
 - [ ] For CREATE ROLE, is NOINHERIT right?
+  -- WHAT IS NOINHERIT????
 
 - [ ] For CREATE EXTENSION, do we get back a warning when we try to create already existing?
 */

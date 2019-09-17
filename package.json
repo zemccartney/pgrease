@@ -4,24 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "test": "c8 node test/file"
+    "lint": "belly-button .",
+    "test": "nyc tape test/configure.js | tap-nyc",
+    "test-c8": "c8 node test/configure"
   },
-  "bin": "./cli.js",
+  "bin": "./bin/pgrease.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hapi/bossy": "4.x.x",
     "@hapi/bounce": "1.x.x",
-    "@hapi/joi": "^15.1.0",
-    "knex": "0.19.x",
+    "@hapi/joi": "15.x.x",
     "pg": "7.x.x"
   },
   "devDependencies": {
     "belly-button": "6.x.x",
     "c8": "5.x.x",
-    "eslint": "6.x.x",
     "faucet": "0.0.1",
+    "nyc": "14.x.x",
+    "tap-nyc": "1.x.x",
     "tape": "4.x.x"
   }
 }

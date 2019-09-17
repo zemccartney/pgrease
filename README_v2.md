@@ -48,6 +48,11 @@ in its configuration.
 
 ## Options
 
+precedence of input vars
+1. ClI Args
+2. CLI flags
+3. .env file
+
 ## How it Works
 
 ## .env File Conventions

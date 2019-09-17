@@ -49,3 +49,8 @@ https://github.com/cjihrig/belly-button // WAY TO INCLUDE AS DEP, BUT
 (this is specifying your work) (quick pass; will inform by implementation research  )
 - [ ] What's up w/ hashing? https://www.meetspaceapp.com/2016/04/12/passwords-postgresql-pgcrypto.html
 - [ ] "^6.1.0" vs. "6.x.x" ; what's the difference in semver?
+- [ ] Try running npm pgrease w/ inspector? (see lab's inspector option)
+- [ ] // TODO Why the exports = module.exports assignment pattern?
+- [ ] Make sure your routinely checking and updating deps...add a david commit hook?
+- [ ] What's the eslintcache file from belly-button?
+- [ ] Doc in README: only env vars for configuring pg connection
